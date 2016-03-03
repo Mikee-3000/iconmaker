@@ -1,4 +1,4 @@
 #! /bin/zsh
-icopath=/usr/share/icons/hicolor
-sudo cp $1.svg $icopath/
-for i in '16' '20' '22' '24' '32' '36' '40' '48' '64' '72' '96' '128' '192' '256' '384' '512' '1024'; do convert +antialias -background none $1.svg -resize $i'x'$i $1.png && sudo cp $1.png $icopath/$i'x'$i/apps/;done
+icopath=/usr/share/icons/hicolor # hicolor is the default theme from which most themes seem to borrow icons they don't have
+sudo cp $1.svg $icopath/scalable/apps/ # copy the svg itself 
+for i in '16' '20' '22' '24' '32' '36' '40' '48' '64' '72' '96' '128' '192' '256' '384' '512' '1024'; do convert +antialias -background none $1.svg -resize $i'x'$i $1.png && sudo cp $1.png $icopath/$i'x'$i/apps/;done # use imagemagick to convert the svg into pngs of appropriate size
